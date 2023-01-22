@@ -20,7 +20,12 @@ namespace Core_MVC_Application.Areas.Identity
                     options.UseSqlServer(
                         context.Configuration.GetConnectionString("Core_MVC_ApplicationDBContextConnection")));
 
-                services.AddDefaultIdentity<Core_MVC_ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                services.AddDefaultIdentity<Core_MVC_ApplicationUser>(options => {
+                    options.SignIn.RequireConfirmedAccount = false;
+                    options.Password.RequireUppercase = false;
+                    options.Password.RequireLowercase = false;
+                    
+                    })
                     .AddEntityFrameworkStores<Core_MVC_ApplicationDBContext>();
             });
         }
