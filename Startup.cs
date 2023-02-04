@@ -46,6 +46,7 @@ namespace Core_MVC_Application
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseAuthentication();
 
             app.UseEndpoints(endpoints =>
             {
